@@ -1,0 +1,38 @@
+# By default your config should have name
+# `project_conf.yaml` and store in the folder contains
+# `manage.py`. You can specify your own name and
+# location of this file by putting it into environment
+# variable `HUMORESQUES_CONF`
+
+telegram:
+  API_ID: your_application_api_id
+  API_HASH: your_application_api_hash
+  PHONE: your_phone_to_login
+  SESSION_DIRECTORY: /path/to/session/file/directory/
+  SESSION: base_name_of_session_file
+  CHANNEL: channel_link  # without leading `t.me/`
+
+databases:
+  default:
+    ENGINE: your.database.engine  # for example django.db.backends.sqlite3
+    NAME: your_database_name
+
+security:
+  ALLOWED_HOSTS:
+   - localhost
+   - another_host
+  DEBUG: true
+  SECRET_KEY: your_secret_key
+
+static:
+  MEDIA_ROOT: /path/to/media/location/
+  MEDIA_URL: /media/
+  STATIC_ROOT: /path/to/static/location/
+  STATIC_URL: /static/
+
+internationalization:
+  LANGUAGE_CODE: your_language
+  TIME_ZONE: your_timezone
+  USE_I18N: true
+  USE_L10N: true
+  USE_TZ: true
