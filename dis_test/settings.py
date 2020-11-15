@@ -74,6 +74,7 @@ INSTALLED_APPS = [
 
     # third-party apps
     'rest_framework',
+    'rangefilter',
 
     # local apps
     'humoresques',

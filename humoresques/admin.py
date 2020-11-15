@@ -1,6 +1,9 @@
 from django.contrib import (
     admin,
 )
+from rangefilter.filter import (
+    DateRangeFilter,
+)
 
 from .models import (
     Post,
@@ -15,5 +18,5 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        'published',
+        ('published', DateRangeFilter),
     )
