@@ -43,6 +43,12 @@ security_section = config['security']
 databases_section = config['databases']
 static_section = config['static']
 i18n_section = config['internationalization']
+customization_section = config['customization']
+
+DATE_FORMAT = customization_section['DATE_FORMAT']
+DATETIME_FORMAT = customization_section['DATETIME_FORMAT']
+POST_PREVIEW_LEN = customization_section['POST_PREVIEW_LEN']
+POST_PREVIEW_TRAILING = customization_section['POST_PREVIEW_TRAILING']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/

@@ -36,3 +36,9 @@ internationalization:
   USE_I18N: true
   USE_L10N: true
   USE_TZ: true
+
+customization:
+  DATE_FORMAT: %Y-%m-%d  # date format for strftime
+  DATETIME_FORMAT: %Y-%m-%d %H:%M  # datetime format for strftime
+  POST_PREVIEW_LEN: 10
+  POST_PREVIEW_TRAILING: <...>
