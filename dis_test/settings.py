@@ -44,11 +44,19 @@ databases_section = config['databases']
 static_section = config['static']
 i18n_section = config['internationalization']
 customization_section = config['customization']
+telegram_section = config['telegram']
 
 DATE_FORMAT = customization_section['DATE_FORMAT']
 DATETIME_FORMAT = customization_section['DATETIME_FORMAT']
 POST_PREVIEW_LEN = customization_section['POST_PREVIEW_LEN']
 POST_PREVIEW_TRAILING = customization_section['POST_PREVIEW_TRAILING']
+
+TELEGRAM_API_ID = telegram_section['API_ID']
+TELEGRAM_API_HASH = telegram_section['API_HASH']
+TELEGRAM_PHONE = telegram_section['PHONE']
+TELEGRAM_SESSION_DIRECTORY = telegram_section['SESSION_DIRECTORY']
+TELEGRAM_SESSION = telegram_section['SESSION']
+TELEGRAM_CHANNEL = telegram_section['CHANNEL']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
