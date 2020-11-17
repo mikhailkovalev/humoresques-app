@@ -23,6 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = os.getenv('HUMORESQUES_CONF') or BASE_DIR / 'project_conf.yaml'
 
 
+def place_relative_path_to_base_dir(path: str) -> str:
+    if not os.path.isabs(path):
+        path = os.path.abspath(os.path.join(
+            BASE_DIR,
+            path,
+        ))
+    return path
+
+
 def read_config(config_path):
     config_file = open(
         config_path,
@@ -54,7 +63,9 @@ POST_PREVIEW_TRAILING = customization_section['POST_PREVIEW_TRAILING']
 TELEGRAM_API_ID = telegram_section['API_ID']
 TELEGRAM_API_HASH = telegram_section['API_HASH']
 TELEGRAM_PHONE = telegram_section['PHONE']
-TELEGRAM_SESSION_DIRECTORY = telegram_section['SESSION_DIRECTORY']
+TELEGRAM_SESSION_DIRECTORY = place_relative_path_to_base_dir(
+    path=telegram_section['SESSION_DIRECTORY'],
+)
 TELEGRAM_SESSION = telegram_section['SESSION']
 TELEGRAM_CHANNEL = telegram_section['CHANNEL']
 
@@ -128,6 +139,11 @@ WSGI_APPLICATION = 'dis_test.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = databases_section
+for db_conf in DATABASES.values():
+    if db_conf['ENGINE'] == 'django.db.backends.sqlite3':
+        db_conf['NAME'] = place_relative_path_to_base_dir(
+            path=db_conf['NAME'],
+        )
 
 
 # Password validation
@@ -167,10 +183,14 @@ USE_TZ = i18n_section['USE_TZ']
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = static_section['STATIC_URL']
-STATIC_ROOT = static_section['STATIC_ROOT']
+STATIC_ROOT = place_relative_path_to_base_dir(
+    path=static_section['STATIC_ROOT'],
+)
 
 MEDIA_URL = static_section['MEDIA_URL']
-MEDIA_ROOT = Path(static_section['MEDIA_ROOT'])
+MEDIA_ROOT = Path(place_relative_path_to_base_dir(
+    path=static_section['MEDIA_ROOT'],
+))
 MEDIA_ROOT.mkdir(
     mode=0o755,
     parents=True,
