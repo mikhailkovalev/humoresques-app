@@ -58,6 +58,11 @@ TELEGRAM_SESSION_DIRECTORY = telegram_section['SESSION_DIRECTORY']
 TELEGRAM_SESSION = telegram_section['SESSION']
 TELEGRAM_CHANNEL = telegram_section['CHANNEL']
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 3,
+}
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
